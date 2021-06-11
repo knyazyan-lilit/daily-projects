@@ -14,9 +14,7 @@ struct AddressBook
 int main()
 {
     list<AddressBook> Book;
-
     int i = 0;
-
     vector<string> v;
     while (true)
     {
