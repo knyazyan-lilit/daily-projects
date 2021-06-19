@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-std::string CompressWord(std::string &word)
+std::string Compress_Word(std::string &word)
 {
     for (int i = 0; i < word.size(); ++i)
     {
@@ -17,7 +17,6 @@ std::string CompressWord(std::string &word)
         {
             continue;
         }
-
         else
         {
             index = i + 1;
@@ -32,7 +31,7 @@ std::string CompressWord(std::string &word)
     return word;
 }
 
-std::string DecompressWord(std::string &word)
+std::string Decompress_Word(std::string &word)
 {
     int index = 0;
     while (index < word.size())
@@ -59,12 +58,10 @@ std::string DecompressWord(std::string &word)
                     }
                 }
             }
-
             word = new_word;
         }
         ++index;
     }
-   
     return word;
 }
 
@@ -79,7 +76,7 @@ void Compress(std::string str)
     {
         std::string word;
         file >> word;
-        file1 << CompressWord(word);
+        file1 << Compress_Word(word);
         file1 << " ";
     }
 }
@@ -95,7 +92,7 @@ void Decompress(std::string str)
     {
         std::string word;
         file >> word;
-        file1 << DecompressWord(word);
+        file1 << Decompress_Word(word);
         file1 << " ";
     }
 }
@@ -113,7 +110,6 @@ int main()
         std::cin >> file_name;
         Compress(file_name);
     }
-
     if (option == '2')
     {
         std::cout << "enter the file name" << std::endl;
