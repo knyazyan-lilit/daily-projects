@@ -4,13 +4,13 @@
 const int rand_range_for_string = 4;
 const int rand_range_for_alphabet = 26;
 
-int random_index_generator()
+int generate_random_index()
 {
     int r = rand() % rand_range_for_string;
     return r;
 }
 
-int alphabet_index_generator()
+int generate_alphabet_index()
 {
     int r = rand() % rand_range_for_alphabet;
     return r;
@@ -69,7 +69,7 @@ std::string PasswordGenerator()
     password.resize(length);
     while (count_of_elems < length)
     {
-        int ind = random_index_generator();
+        int ind = generate_random_index();
         if (ind == 3 && count_of_symbols == 2)
         {
             continue;
@@ -100,7 +100,7 @@ std::string PasswordGenerator()
             {
                 continue;
             }
-            int uppercase = alphabet_index_generator();
+            int uppercase = generate_alphabet_index();
             password = password + Uppercase[uppercase];
             count_of_uppercases++;
             count_of_elems++;
@@ -111,7 +111,7 @@ std::string PasswordGenerator()
             {
                 continue;
             }
-            int lowecase = alphabet_index_generator();
+            int lowecase = generate_alphabet_index();
             password = password + Lowercase[lowecase];
             count_of_lowercases++;
             count_of_elems++;
