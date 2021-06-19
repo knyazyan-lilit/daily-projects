@@ -5,7 +5,6 @@ using namespace std;
 
 struct AddressBook
 {
-
     string name;
     string address;
     string phone;
@@ -23,20 +22,16 @@ int main()
             string l;
             cin >> l;
             v.push_back(l);
-
             if (std::cin.get() == '\n')
             {
-
                 v.clear();
                 if (v[0] == "add")
                 {
-
                     Book.push_back(AddressBook{v[1], v[2], v[3]});
                 }
                 v.clear();
                 if (v[0] == "remove")
                 {
-
                     list<AddressBook>::iterator itr;
                     for (itr = Book.begin(); itr != Book.end(); ++itr)
                     {
@@ -50,7 +45,6 @@ int main()
                 v.clear();
                 if (v[0] == "ls")
                 {
-
                     for (auto elem : Book)
                     {
                         cout << "name : " << elem.name << " ";
@@ -68,6 +62,5 @@ int main()
             }
         }
     }
-
     return 0;
 }
