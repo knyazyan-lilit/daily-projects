@@ -1,5 +1,4 @@
 #include <vector>
-
 struct Node
 {
     bool state;
