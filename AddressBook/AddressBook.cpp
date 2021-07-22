@@ -31,7 +31,7 @@ int main()
                 v.clear();
                 if (v[0] == "remove")
                 {
-                    list<AddressBook>::iterator itr;
+                    std::list<AddressBook>::iterator itr;
                     for (itr = Book.begin(); itr != Book.end(); ++itr)
                     {
                         if (itr->name == v[1] && itr->address == v[2] && itr->phone == v[3])
