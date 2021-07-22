@@ -4,16 +4,16 @@
 
 struct AddressBook
 {
-    string name;
-    string address;
-    string phone;
+    std::string name;
+    std::string address;
+    std::string phone;
 };
 
 int main()
 {
     std::list<AddressBook> Book;
     int i = 0;
-    std::vector<string> v;
+    std::vector<std::string> v;
     while (true)
     {
         while (std::cin)
