@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
-using namespace std;
+
 
 struct AddressBook
 {
@@ -12,15 +12,15 @@ struct AddressBook
 
 int main()
 {
-    list<AddressBook> Book;
+    std::list<AddressBook> Book;
     int i = 0;
-    vector<string> v;
+    std::vector<string> v;
     while (true)
     {
         while (std::cin)
         {
-            string l;
-            cin >> l;
+            std::string l;
+            std::cin >> l;
             v.push_back(l);
             if (std::cin.get() == '\n')
             {
@@ -47,17 +47,17 @@ int main()
                 {
                     for (auto elem : Book)
                     {
-                        cout << "name : " << elem.name << " ";
-                        cout << "address : " << elem.address << " ";
-                        cout << "phone : " << elem.phone << " ";
-                        cout << endl;
+                        std::cout << "name : " << elem.name << " ";
+                        std::cout << "address : " << elem.address << " ";
+                        sdt::cout << "phone : " << elem.phone << " ";
+                        std::cout << endl;
                     }
                 }
                 if (v[0] == "help")
                 {
-                    cout << "add : adding element in AddressBook " << endl;
-                    cout << "remove : remove element from AddressBook " << endl;
-                    cout << "ls : lists elements of AddressBook " << endl;
+                    std::cout << "add : adding element in AddressBook " << endl;
+                    std::cout << "remove : remove element from AddressBook " << endl;
+                    std::cout << "ls : lists elements of AddressBook " << endl;
                 }
             }
         }
