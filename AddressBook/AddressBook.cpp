@@ -48,15 +48,15 @@ int main()
                     {
                         std::cout << "name : " << elem.name << " ";
                         std::cout << "address : " << elem.address << " ";
-                        sdt::cout << "phone : " << elem.phone << " ";
-                        std::cout << endl;
+                        std::cout << "phone : " << elem.phone << " ";
+                        std::cout << std::endl;
                     }
                 }
                 if (v[0] == "help")
                 {
-                    std::cout << "add : adding element in AddressBook " << endl;
-                    std::cout << "remove : remove element from AddressBook " << endl;
-                    std::cout << "ls : lists elements of AddressBook " << endl;
+                    std::cout << "add : adding element in AddressBook " << std::endl;
+                    std::cout << "remove : remove element from AddressBook " << std::endl;
+                    std::cout << "ls : lists elements of AddressBook " << std::endl;
                 }
             }
         }
