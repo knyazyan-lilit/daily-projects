@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+
 struct Node
 {
     bool state;
