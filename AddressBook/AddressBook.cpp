@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <list>
 
 struct AddressBook
 {
@@ -11,7 +10,7 @@ struct AddressBook
 
 int main()
 {
-    std::list<AddressBook> Book;
+    std::vector<AddressBook> Book;
     int i = 0;
     std::vector<std::string> v;
     while (true)
@@ -23,26 +22,76 @@ int main()
             v.push_back(l);
             if (std::cin.get() == '\n')
             {
-                v.clear();
                 if (v[0] == "add")
                 {
-                    Book.push_back(AddressBook{v[1], v[2], v[3]});
-                }
-                v.clear();
-                if (v[0] == "remove")
-                {
-                    std::list<AddressBook>::iterator itr;
-                    for (itr = Book.begin(); itr != Book.end(); ++itr)
-                    {
-                        if (itr->name == v[1] && itr->address == v[2] && itr->phone == v[3])
-                        {
-                            Book.erase(itr);
-                            break;
-                        }
+                    if (v.size() < 4) {
+                        std::cout << "field is missing" << std::endl;
+                        v.clear();
+                        continue;
+                    }
+                    else if (v.size() > 4) {
+                        std::cout << "unnecessary field" << std::endl;
+                        v.clear();
+                        continue;
+                    }
+                    else {
+                        Book.push_back(AddressBook{ v[1], v[2], v[3] });
+                        v.clear();
                     }
                 }
-                v.clear();
-                if (v[0] == "ls")
+                else if (v[0] == "remove")
+                {
+                    if (v.size() == 1) {
+                        std::cout << "field is missing" << std::endl;
+                        v.clear();
+                        continue;
+                    }
+                    else if (v.size() == 2) {
+                        std::vector<AddressBook>::iterator itr;
+                        for (itr = Book.begin(); itr != Book.end(); ++itr)
+                        {
+                            if (itr->name == v[1])
+                            {
+                                Book.erase(itr);
+                                v.clear();
+                                break;
+                            }
+                        }
+                    }
+                    else if (v.size() == 3) {
+                        std::vector<AddressBook>::iterator itr;
+                        for (itr = Book.begin(); itr != Book.end(); ++itr)
+                        {
+                            if ((itr->name == v[1] && itr->address == v[2]))
+                            {
+                                Book.erase(itr);
+                                v.clear();
+                                break;
+                            }
+                        }
+                        std::cout << "cannot find field to delete" << std::endl;
+                        v.clear();
+                        continue;
+                    }
+                    else if (v.size() == 4) {
+                        std::vector<AddressBook>::iterator itr;
+                        for (itr = Book.begin(); itr != Book.end(); ++itr)
+                        {
+                            if ((itr->name == v[1] && itr->address == v[2] && itr->phone == v[3]))
+                            {
+                                Book.erase(itr);
+                                v.clear();
+                                break;
+                            }
+                        }
+                    }
+                    else {
+                        std::cout << "cannot find field to delete" << std::endl;
+                        v.clear();
+                        continue;
+                    }
+                }
+                else  if (v[0] == "ls")
                 {
                     for (auto elem : Book)
                     {
@@ -51,12 +100,19 @@ int main()
                         std::cout << "phone : " << elem.phone << " ";
                         std::cout << std::endl;
                     }
+                    v.clear();
                 }
-                if (v[0] == "help")
+                else if (v[0] == "help")
                 {
                     std::cout << "add : adding element in AddressBook " << std::endl;
                     std::cout << "remove : remove element from AddressBook " << std::endl;
-                    std::cout << "ls : lists elements of AddressBook " << std::endl;
+                    std::cout << "ls : lists elemients of AddressBook " << std::endl;
+                    v.clear();
+                }
+                else {
+                    std::cout << "wrong query " << std::endl;
+                    v.clear();
+                    continue;
                 }
             }
         }
